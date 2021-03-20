@@ -4,10 +4,12 @@ Requirements:
 * k8s cluster
 
 Notes:
+* This includes an ingress controller, but it can be ommited by renaming the ingress.yaml to ingress.yaml-bak or deleting it.  It's inside the chart/nodeserver/templates directory.
 * NodeJS 14 using npm
 * Dockerfile uses FROM: node:14.16.0-buster for debian nodejs on docker hubs
 *  Assumes a new k8s cluster ( in this case on DigitalOcean.com but should work on any k8s opensource cluster)
 * helm3 was used, however, the chart is compatible with helm2
+* 
 
 Instructions:
 
