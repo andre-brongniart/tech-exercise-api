@@ -18,7 +18,7 @@ app.get("/version", function (req, res) {
     res.json({'version': pjson.version});
 });
 
-// POST endpoint to respond with request number being prime (true) or not (false)
+// GET endpoint to respond with request number being prime (true) or not (false)
 
 app.get("/is_prime", function (req, res) {
     var prime = true;
