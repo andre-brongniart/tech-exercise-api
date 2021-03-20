@@ -9,18 +9,25 @@ Notes:
 
 Could use additional improvements for both the app code and the k8s helm chart deployment:
 *  proper logging output and error handling from the nodejs app
-*  proper log aggregration service such as Elastic Stack/Graylog2/Splunk
+*  proper log aggregration service such as Elastic Stack/Graylog2/Splunk using an agent like fluentd
+*  docker image scanning with CVE scanning such as tenable.io/crowdstrike
+*  code base scanning for code QA such as with sonarQube
+*  deploying Prometheus monitoring
+*  deploying grafana
+*  implementing a proper pipeline like with codefresh.io/jenkins/gilab-ci/github-ci/circle/etc.
+*  proper handling of api.openweathermap.org API Key as a k8s secret
 *  metrics-server deployment and configuration for an HPA
 *  HPA
-*  proper LB
-*  letsencrypt/ssl
+*  proper LoadBalancing
+*  CA validated ssl terminated on the LB or CDN
+*  CDN WAF proxy based inspection or WAF agent based such as signalscience
 *  Weather app is dependent on a proper response from https://api.openweathermap.org/data/2.5/weather" with zipcode and appid (api key)  It returns 401 using needs further troubleshooting as it is not working per their documentation for 401 errors:
   ```sh
   curl https://api.openweathermap.org/data/2.5/weather?zip=89523&appid=4fd4e4733ecdfd7b2f7d46b77ee6a25a
   {"cod":401, "message": "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info."}
   ```
   
-  It is possible that current weather is not on the free plan, however it appeared to be available for the free plan when I signed up to get an API key.  Futher investigation needed.
+  It is possible that current weather is not available on the free plan, however it appeared to be available for the free plan when I signed up to get an API key.  Futher investigation needed.
 
   The appid is an active API key and the zip code is for Reno NV area.
 
